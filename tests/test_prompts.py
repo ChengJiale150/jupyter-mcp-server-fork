@@ -3,13 +3,10 @@ Test for MCP Prompts Feature
 """
 
 import os
-import logging
-from http import HTTPStatus
 
 import pytest
-import requests
 
-from .test_common import MCPClient, JUPYTER_TOOLS, timeout_wrapper
+from .test_common import MCPClient, timeout_wrapper
 
 # Now, prompt feature is only available in MCP_SERVER mode.
 pytestmark = pytest.mark.skipif(
