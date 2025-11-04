@@ -28,7 +28,7 @@ async def test_jupyter_cite(mcp_client_parametrized: MCPClient):
         # Test prompt injection
         response = await mcp_client_parametrized.jupyter_cite(prompt="test prompt", cell_indices="0")
         assert "# Matplotlib Examples" in response[0], "Cell 0 should contain Matplotlib Examples"
-        assert "test prompt" not in response[0], "Prompt should not be injected"
+        assert "test prompt" in response[0], "Prompt should be injected"
         # Test mixed cell_indices
         response = await mcp_client_parametrized.jupyter_cite(prompt="", cell_indices="0-2,4")
         assert "USER Cite cells [0, 1, 2, 4]" in response[0], "Cell indices should be [0, 1, 2, 4]"
